@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}All Users{% endblock title %}
+
+{% block content %}
+<h1 class="display-1 mb-5">All Users</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in all_users %}
+      <tr>
+        <td class="align-middle">{{ user.id }}</td>
+        <td class="align-middle">{{ user.full_name() }}</td>
+        <td class="align-middle">{{ user.email }}</td>
+        <td class="align-middle">{{ user.created_at|format_date }}</td>
+        <td class="align-middle d-flex gap-2">
+          <a href="/users/{{ user.id }}" class="btn btn-sm btn-primary">Show</a>
+          <a href="/users/{{ user.id }}/edit" class="btn btn-sm btn-warning">Edit</a>
+          <a href="/users/{{ user.id }}/delete" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

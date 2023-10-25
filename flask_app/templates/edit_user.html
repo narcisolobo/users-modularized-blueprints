@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit User {{ user.id }}{% endblock title %}
+
+{% block content %}
+<h1 class="display-1 mb-5">Edit User {{ user.id }}</h1>
+<div class="card shadow">
+  <div class="card-body">
+    <form action="/users/update" method="post">
+      <input type="hidden" name="id" value="{{ user.id }}" />
+      <div class="mb-3">
+        <label for="first_name" class="form-label">First Name:</label>
+        <input type="text" name="first_name" id="first_name" class="form-control" value="{{ user.first_name }}" />
+      </div>
+      <div class="mb-3">
+        <label for="last_name" class="form-label">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" class="form-control" value="{{ user.last_name }}" />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="text" name="email" id="email" class="form-control" value="{{ user.email }}" />
+      </div>
+      <div class="text-end">
+        <button type="submit" class="btn btn-primary">Edit User</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}
