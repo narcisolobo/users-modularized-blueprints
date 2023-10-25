@@ -46,7 +46,6 @@ class User:
         users = []
         for result in results:
             users.append(User(result))
-            print(type(User(result).created_at))
 
         return users
 
