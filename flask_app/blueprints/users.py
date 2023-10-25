@@ -49,3 +49,10 @@ def update_user():
     """Processes the edit user form."""
     User.update(request.form)
     return redirect(f'/users/{request.form["id"]}')
+
+
+@users.post("/users/<int:user_id>/delete")
+def delete_user(user_id):
+    """Deletes a user from the database."""
+    User.delete(user_id)
+    return redirect("/users")
